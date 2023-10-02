@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { readReplayFile, replayData } from "../scripts/Replay Reader.mjs";
 
 export function BotButts() {
@@ -10,18 +11,34 @@ export function BotButts() {
 }
 
 function LocalFileButt() {
+  
+  const inputRef = useRef(null);
 
   const handleClick = () => {
-    console.log("open file dialog");
+    inputRef.current.click();
+  };
+  
+  const handleChange = async (e) => {
+    e.preventDefault();
+    if (e.target.files && e.target.files[0]) {
+     readReplayFile(await e.target.files[0].text());
+    }
   }
 
   return (
-    <button
-      className="BotButton"
-      onClick={handleClick}
-    >
-      Or choose a file
-    </button>
+    <div>
+      <button
+        className="BotButton"
+        onClick={handleClick}
+      >Or select a file</button>
+      <input
+        ref={inputRef}
+        hidden={true}
+        type="file"
+        onChange={handleChange}
+      ></input>
+    </div>
+    
   );
 
 }
