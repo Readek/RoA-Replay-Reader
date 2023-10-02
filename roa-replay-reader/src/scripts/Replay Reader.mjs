@@ -1,12 +1,10 @@
-export const replayData = {
-    player : []
-};
-
 /**
  * Reads a .roa replay file and parses its contents
  * @param {String} file - The big ass replay file
  */
 export function readReplayFile(file) {
+
+    const replayData = {};
 
     // get an array with each line
     const fileLines = file.split("\n");
@@ -136,7 +134,7 @@ export function readReplayFile(file) {
 
     }
 
-    console.log(replayData);
+    return replayData;
 
 }
 

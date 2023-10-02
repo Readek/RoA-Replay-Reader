@@ -1,13 +1,9 @@
-import { useState } from "react"
-
-export function GameInfoData({title}) {
-
-    const [dataValue, setDataValue] = useState("");
+export function GameInfoData({title, value}) {
     
     return (
         <div className="gameInfoData">
             <div className="infoTitle">{title}</div>
-            <div className="infoData">{dataValue}</div>
+            <div className="infoData">{value}</div>
         </div>
     )
 

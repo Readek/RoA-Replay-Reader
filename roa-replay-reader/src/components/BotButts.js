@@ -1,16 +1,22 @@
 import { useRef } from "react";
-import { readReplayFile, replayData } from "../scripts/Replay Reader.mjs";
+import { readReplayFile} from "../scripts/Replay Reader.mjs";
 
-export function BotButts() {
+export function BotButts({showData, updateData}) {
   return (
     <div className='BotButts'>
-      <LocalFileButt />
-      <DemoFileButt />
+      <LocalFileButt
+        showData={showData}
+        updateData={updateData}
+      />
+      <DemoFileButt
+        showData={showData}
+        updateData={updateData}
+      />
     </div>
   );
 }
 
-function LocalFileButt() {
+function LocalFileButt({showData, updateData}) {
   
   const inputRef = useRef(null);
 
@@ -21,7 +27,8 @@ function LocalFileButt() {
   const handleChange = async (e) => {
     e.preventDefault();
     if (e.target.files && e.target.files[0]) {
-     readReplayFile(await e.target.files[0].text());
+     updateData(readReplayFile(await e.target.files[0].text()));
+     showData();
     }
   }
 
@@ -43,7 +50,7 @@ function LocalFileButt() {
 
 }
 
-function DemoFileButt() {
+function DemoFileButt({showData, updateData}) {
 
   const demoFile = `021060322560717092023REPLAY 2023-9-17 (22:56)                                                                                                                                                    00000699320000000000
 011030820110000000565000000000
@@ -57,7 +64,8 @@ heres where the inputs go but we dont actually read this
   `
 
   const handleClick = async () => {
-    readReplayFile(demoFile);
+    updateData(readReplayFile(demoFile));
+    showData();
   }
 
   return (

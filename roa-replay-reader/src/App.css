@@ -55,3 +55,29 @@
 .BotButton:hover {
   border-color: #61dafb;
 }
+
+
+
+.dataDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.gameInfoDiv {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.playerInfoDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.gameInfoData {
+  display: flex;
+  gap: 10px;
+  border: 1px lightgrey solid;
+  padding: 5px 10px;
+}
