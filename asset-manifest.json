@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/RoA-Replay-Reader/static/css/main.e1c35e5e.css",
-    "main.js": "/RoA-Replay-Reader/static/js/main.d6d3b6a0.js",
+    "main.css": "/RoA-Replay-Reader/static/css/main.d20bb987.css",
+    "main.js": "/RoA-Replay-Reader/static/js/main.f6ae77ca.js",
     "static/js/787.fa4f8142.chunk.js": "/RoA-Replay-Reader/static/js/787.fa4f8142.chunk.js",
     "index.html": "/RoA-Replay-Reader/index.html",
-    "main.e1c35e5e.css.map": "/RoA-Replay-Reader/static/css/main.e1c35e5e.css.map",
-    "main.d6d3b6a0.js.map": "/RoA-Replay-Reader/static/js/main.d6d3b6a0.js.map",
+    "main.d20bb987.css.map": "/RoA-Replay-Reader/static/css/main.d20bb987.css.map",
+    "main.f6ae77ca.js.map": "/RoA-Replay-Reader/static/js/main.f6ae77ca.js.map",
     "787.fa4f8142.chunk.js.map": "/RoA-Replay-Reader/static/js/787.fa4f8142.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1c35e5e.css",
-    "static/js/main.d6d3b6a0.js"
+    "static/css/main.d20bb987.css",
+    "static/js/main.f6ae77ca.js"
   ]
 }
