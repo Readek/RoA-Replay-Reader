@@ -1,4 +1,5 @@
-import { stageCode, stageCodeToName } from "./Stage Codes.mjs";
+import { characterCodeToName } from "./Character Codes.mjs";
+import { stageCodeToName } from "./Stage Codes.mjs";
 
 /**
  * Reads a .roa replay file and parses its contents
@@ -44,17 +45,13 @@ export function readReplayFile(file) {
 
             // gamemode
             const repGM = fileLines[i].substring(202, 203);
-            // 0 = local match
-            // 1 = online casual
-            // 2 = friendly match
-            // 3 = ranked match
             if (repGM == 0) {
                 replayData.gamemode = "Local Match";
             } else if (repGM == 1) {
                 replayData.gamemode = "Casual Match";
             } else if (repGM == 2) {
                 replayData.gamemode = "Online Match";
-            } else {
+            } else { // 3
                 replayData.gamemode = "Ranked Match";
             }
             
@@ -113,27 +110,42 @@ export function readReplayFile(file) {
         player.playerName = username + " (" + tag + ")";
 
 
-        // character
-        const charSlot = fileLines[i + curLine].substring(39, 42);
-        // TODO charslot to text
-        player.character = charSlot;
+        // identify if this is a workshop character
+        const isWorkshop = fileLines[i + curLine + 1].length == 19 ? true : false;
 
+
+        // character
+        if (isWorkshop) {
+            player.character = "Workshop Character"
+        } else {
+            const charSlot = fileLines[i + curLine].substring(39, 42);
+            // TODO charslot to text
+            player.character = characterCodeToName(charSlot);
+        }
+        
 
         // skin
-        const skinSlot = fileLines[i + curLine].substring(42, 44);
-        // TODO skinslot to text?
-        player.skin = skinSlot;
-
+        if (!isWorkshop) {
+            const skinSlot = fileLines[i + curLine].substring(42, 44);
+            // TODO skinslot to text?
+            player.skin = skinSlot;
+        }
+        
 
         // taunt slot, may be useful later
-        const tauntCode = fileLines[i + curLine].substring(44, 46);
+        if (!isWorkshop) {
+            const tauntCode = fileLines[i + curLine].substring(44, 46);
+            player.taunt = tauntCode;
+        }
 
 
         // skin color code!
-        const skinCode = fileLines[i + curLine].substring(56, 106).trimEnd();
-        // add in the "-"'s in the code
-        player.skinCode = skinCode.match(/.{1,4}/g).join("-");
-
+        if (!isWorkshop) {
+            const skinCode = fileLines[i + curLine].substring(56, 106).trimEnd();
+            // add in the "-"'s in the code
+            player.skinCode = skinCode.match(/.{1,4}/g).join("-");
+        }
+        
 
         // win count
         player.wins = fileLines[i + curLine].substring(127, 129).trimStart();
@@ -144,7 +156,7 @@ export function readReplayFile(file) {
 
 
         // next player will be 2 lines below, or 3 lines if player is workshop
-        const isWorkshop = Number(fileLines[i + curLine].substring(110, 111))
+        
         curLine += isWorkshop ? 2 : 1;
 
     }

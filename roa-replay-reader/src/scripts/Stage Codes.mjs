@@ -1,4 +1,4 @@
-const stageCode = {
+const stageCodes = {
     1 : "Treetop Lodge",
     2 : "Fire Capital",
     3 : "Air Armada",
@@ -47,8 +47,8 @@ export function stageCodeToName(code) {
     // removes leading 0's
     code = Number(code);
 
-    if (stageCode[code]) {
-        return stageCode[code];
+    if (stageCodes[code]) {
+        return stageCodes[code];
     } else {
         return "Unknown Stage"
     }
