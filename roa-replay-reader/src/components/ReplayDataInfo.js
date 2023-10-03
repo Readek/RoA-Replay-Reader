@@ -35,7 +35,7 @@ export function ReplayDataInfo({fileData: replayData}) {
             <div className="gameInfoDiv">
 
                 <GameInfoData value={replayData.gamemode}/>
-                <GameInfoData title="Stage" value={replayData.stage}/>
+                <GameInfoData value={replayData.stage}/>
                 <GameInfoData title="Duration" value={replayData.length}/>
                 <GameInfoData value={replayData.date}/>
                 <GameInfoData title="Version" value={replayData.version}/>

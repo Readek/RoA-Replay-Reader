@@ -1,3 +1,5 @@
+import { stageCode, stageCodeToName } from "./Stage Codes.mjs";
+
 /**
  * Reads a .roa replay file and parses its contents
  * @param {String} file - The big ass replay file
@@ -64,9 +66,9 @@ export function readReplayFile(file) {
             // stage
             const stgType = fileLines[i].substring(0, 1);
             const stgCode = fileLines[i].substring(1, 3);
-            // TODO code to text
-            replayData.stage = (Number(stgType) ? "Aether " : "") + stgCode;
-
+            
+            const stageName = stageCodeToName(stgCode);
+            replayData.stage = (Number(stgType) ? "Aether " : "") + stageName;
 
             // team match
             if (fileLines[i].substring(8, 9) > 0) {
