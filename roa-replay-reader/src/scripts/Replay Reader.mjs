@@ -46,7 +46,16 @@ export function readReplayFile(file) {
             // 1 = online casual
             // 2 = friendly match
             // 3 = ranked match
-            replayData.gamemode = repGM;
+            if (repGM == 0) {
+                replayData.gamemode = "Local Match";
+            } else if (repGM == 1) {
+                replayData.gamemode = "Casual Match";
+            } else if (repGM == 2) {
+                replayData.gamemode = "Online Match";
+            } else {
+                replayData.gamemode = "Ranked Match";
+            }
+            
             
             
         } else if (i == 1) { // line 2 - more game info
@@ -90,27 +99,28 @@ export function readReplayFile(file) {
 
         
         // create a player object
-        replayData.player.push({});
+        const player = {};
         
 
         // steam username
-        replayData.player[i].username = fileLines[i + curLine].substring(1, 33).trimEnd();
-
-
+        const username = fileLines[i + curLine].substring(1, 33).trimEnd();
         // player tag
-        replayData.player[i].tag = fileLines[i + curLine].substring(33, 39).trimEnd();
+        const tag = fileLines[i + curLine].substring(33, 39).trimEnd();
+
+        // final player string
+        player.playerName = username + " (" + tag + ")";
 
 
         // character
         const charSlot = fileLines[i + curLine].substring(39, 42);
         // TODO charslot to text
-        replayData.player[i].character = charSlot;
+        player.character = charSlot;
 
 
         // skin
         const skinSlot = fileLines[i + curLine].substring(42, 44);
         // TODO skinslot to text?
-        replayData.player[i].skin = skinSlot;
+        player.skin = skinSlot;
 
 
         // taunt slot, may be useful later
@@ -119,13 +129,16 @@ export function readReplayFile(file) {
 
         // skin color code!
         const skinCode = fileLines[i + curLine].substring(56, 106).trimEnd();
-        // TODO add -
-        replayData.player[i].skinCode = skinCode;
+        // add in the "-"'s in the code
+        player.skinCode = skinCode.match(/.{1,4}/g).join("-");
 
 
         // win count
-        replayData.player[i].wins = fileLines[i + curLine].substring(127, 129).trimStart();
+        player.wins = fileLines[i + curLine].substring(127, 129).trimStart();
 
+
+        // add player to the final object
+        replayData.player.push(player);
 
 
         // next player will be 2 lines below, or 3 lines if player is workshop

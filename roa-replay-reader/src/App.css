@@ -67,12 +67,25 @@
 
 .gameInfoDiv {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .playerInfoDiv {
   display: flex;
   justify-content: center;
+  gap: 10px;
+}
+
+.playerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoRow {
+  display: flex;
+  gap: 10px;
 }
 
 .gameInfoData {
@@ -80,4 +93,5 @@
   gap: 10px;
   border: 1px lightgrey solid;
   padding: 5px 10px;
+  border-radius: 10px;
 }

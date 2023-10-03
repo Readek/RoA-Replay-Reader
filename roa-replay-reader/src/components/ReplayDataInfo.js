@@ -9,12 +9,17 @@ export function ReplayDataInfo({fileData: replayData}) {
     
                 <div className="playerInfo">
     
-                    <GameInfoData title="Username" value={player.username}/>
-                    <GameInfoData title="Tag" value={player.tag}/>
-                    <GameInfoData title="Character" value={player.character}/>
-                    <GameInfoData title="Skin" value={player.skin}/>
-                    <GameInfoData title="Skin Code" value={player.skinCode}/>
-                    <GameInfoData title="Wins" value={player.wins}/>
+                    <div className="infoRow">
+                        <GameInfoData value={player.playerName}/>
+                        <GameInfoData title="Win Count:" value={player.wins}/>
+                    </div>
+
+                    <div className="infoRow">
+                        <GameInfoData title="Character" value={player.character}/>
+                        <GameInfoData title="Skin" value={player.skin}/>
+                    </div>
+                    
+                    <GameInfoData value={player.skinCode}/>
     
                 </div>
     
@@ -29,12 +34,11 @@ export function ReplayDataInfo({fileData: replayData}) {
             
             <div className="gameInfoDiv">
 
-                <GameInfoData title="Version" value={replayData.version}/>
-                <GameInfoData title="Date" value={replayData.date}/>
-                <GameInfoData title="Gamemode" value={replayData.gamemode}/>
+                <GameInfoData value={replayData.gamemode}/>
                 <GameInfoData title="Stage" value={replayData.stage}/>
-                <GameInfoData title="Match Type" value={replayData.matchType}/>
                 <GameInfoData title="Duration" value={replayData.length}/>
+                <GameInfoData value={replayData.date}/>
+                <GameInfoData title="Version" value={replayData.version}/>
                 
             </div>
 
