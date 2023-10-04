@@ -39,9 +39,11 @@ export function readReplayFile(file) {
             
 
             // match lenght
-            // TODO decripto the codo
-            const repLenght = fileLines[i].substring(196, 201);
-            replayData.length = repLenght;
+            // length is stored as number of frames + 35 (slowdown during GAME message)
+            const repFrames = Number(fileLines[i].substring(196, 202))-35;
+            const repMins = Math.floor(repFrames/3600);
+            const repSecs = Math.floor((repFrames/60)%60);
+            replayData.length = repMins + ":" + String(repSecs).padStart(2, "0");
 
 
             // gamemode
