@@ -1,9 +1,10 @@
-import { characterCodeToName } from "./Character Codes.mjs";
+import { characterCodeToName, skinCodeToName } from "./Character Codes.mjs";
 import { stageCodeToName } from "./Stage Codes.mjs";
 
 /**
  * Reads a .roa replay file and parses its contents
  * @param {String} file - The big ass replay file
+ * @returns Replay data object
  */
 export function readReplayFile(file) {
 
@@ -115,11 +116,10 @@ export function readReplayFile(file) {
 
 
         // character
+        const charSlot = fileLines[i + curLine].substring(39, 42);
         if (isWorkshop) {
             player.character = "Workshop Character"
         } else {
-            const charSlot = fileLines[i + curLine].substring(39, 42);
-            // TODO charslot to text
             player.character = characterCodeToName(charSlot);
         }
         
@@ -127,15 +127,16 @@ export function readReplayFile(file) {
         // skin
         if (!isWorkshop) {
             const skinSlot = fileLines[i + curLine].substring(42, 44);
-            // TODO skinslot to text?
-            player.skin = skinSlot;
+            player.skin = skinCodeToName(charSlot, skinSlot);
         }
         
 
-        // taunt slot, may be useful later
+        // taunt slot, for custom customs
         if (!isWorkshop) {
             const tauntCode = fileLines[i + curLine].substring(44, 46);
-            player.taunt = tauntCode;
+            if (player.skin == "Custom Skin") {
+                player.skin += " (" + skinCodeToName(charSlot, tauntCode) + ")"
+            }
         }
 
 

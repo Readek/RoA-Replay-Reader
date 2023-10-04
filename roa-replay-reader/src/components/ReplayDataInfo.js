@@ -16,8 +16,7 @@ export function ReplayDataInfo({fileData: replayData}) {
 
                     <div className="infoRow">
                         <GameInfoData value={player.character}/>
-                        <GameInfoData title="Skin" value={player.skin}/>
-                        <GameInfoData title="Taunt" value={player.taunt}/>
+                        <GameInfoData value={player.skin}/>
                     </div>
                     
                     <GameInfoData value={player.skinCode}/>

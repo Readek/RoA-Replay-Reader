@@ -49,8 +49,8 @@ export function stageCodeToName(code) {
 
     if (stageCodes[code]) {
         return stageCodes[code];
-    } else {
-        return "Unknown Stage"
     }
+
+    return "Unknown Stage"
 
 }
