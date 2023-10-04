@@ -29,9 +29,9 @@ const stageCodes = {
     
     29 : "Tetherball Court",
 
-    32 : "Neo Blazing Rail",
+    32 : "NEO Blazing Rail",
     33 : "Highdive Hideaway",
-    34 : "Neo Julesvale",
+    34 : "NEO Julesvale",
     35 : "Crystal Oasis",
     36 : "Diamond Grove",
     37 : "Badger Co. Mines"
@@ -51,6 +51,6 @@ export function stageCodeToName(code) {
         return stageCodes[code];
     }
 
-    return "Unknown Stage"
+    return "Unknown Stage";
 
 }

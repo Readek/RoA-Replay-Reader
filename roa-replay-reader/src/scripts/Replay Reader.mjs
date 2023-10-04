@@ -68,6 +68,10 @@ export function readReplayFile(file) {
             const stageName = stageCodeToName(stgCode);
             replayData.stage = (Number(stgType) ? "Aether " : "") + stageName;
 
+            if (stageName != "Unknown Stage") {
+                replayData.stageImg = "/images/Stages/" + stageName + ".png";
+            }
+
             // team match
             if (fileLines[i].substring(8, 9) > 0) {
                 replayData.gamemode = "Team " + replayData.gamemode;
@@ -119,8 +123,10 @@ export function readReplayFile(file) {
         const charSlot = fileLines[i + curLine].substring(39, 42);
         if (isWorkshop) {
             player.character = "Workshop Character"
+            player.charImg = "/images/Icons/Workshop.png";
         } else {
             player.character = characterCodeToName(charSlot);
+            player.charImg = "/images/Characters/" + player.character + ".png";
         }
         
 

@@ -15,7 +15,7 @@ export function ReplayDataInfo({fileData: replayData}) {
                     </div>
 
                     <div className="infoRow">
-                        <GameInfoData value={player.character}/>
+                        <GameInfoData value={player.character} img={player.charImg}/>
                         <GameInfoData value={player.skin}/>
                     </div>
                     
@@ -35,8 +35,8 @@ export function ReplayDataInfo({fileData: replayData}) {
             <div className="gameInfoDiv">
 
                 <GameInfoData value={replayData.gamemode}/>
-                <GameInfoData value={replayData.stage}/>
-                <GameInfoData title="Duration" value={replayData.length}/>
+                <GameInfoData value={replayData.stage} img={replayData.stageImg} />
+                <GameInfoData value={replayData.length} img='/images/Icons/Time.png'/>
                 <GameInfoData value={replayData.date}/>
                 <GameInfoData title="Version" value={replayData.version}/>
                 
