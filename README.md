@@ -1,6 +1,6 @@
 <p align="center">
 
-  <img src="https://github.com/Readek/RoA-Stream-Tool/blob/master/Preview.png" alt="Preview">
+  <img src="https://github.com/Readek/RoA-Replay-Reader/blob/main/Preview.png" alt="Preview">
   
 </p>
 
