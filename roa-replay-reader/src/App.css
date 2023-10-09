@@ -111,3 +111,62 @@
   height: 30px;
   object-fit: contain;
 }
+
+
+.botLinksDiv {
+  display: flex;
+  gap: 2px;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+}
+
+.socialButt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 20px;
+  transition: filter 100ms;
+  margin: 0px 3px 0px 3px;
+}
+.socialButt:hover, .buttonsBot:focus {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+.socialButt:active {
+  filter: brightness(.9);
+}
+#mastoButton {
+  background-color: #6479be;
+}
+#mastoIcon {
+  height: 21px;
+  width: 21px;
+  fill: white;
+}
+#discordButton {
+  background-color: #5E69F6;
+}
+#discordIcon {
+  height: 23px;
+  width: 23px;
+  fill: white;
+}
+#githubButton {
+  background-color: #535353;
+}
+#githubIcon {
+  height: 23px;
+  width: 23px;
+  fill: white;
+  transform: translate(0px, 1px);
+}
+#kofiButton {
+  background-color: #64b3be;
+}
+#kofiIcon {
+  height: 21px;
+  width: 21px;
+  fill: white;
+  transform: translate(1px, 1px);
+}
