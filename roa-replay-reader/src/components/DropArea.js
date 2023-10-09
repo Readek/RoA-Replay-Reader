@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { readReplayFile } from "../scripts/Replay Reader.mjs";
 
-export function DropArea({showData, updateData}) {
+export function DropArea({showData, updateData, padValue, setPadValue}) {
 
   const [dragActive, setDragActive] = useState(false);
 
@@ -22,6 +22,7 @@ export function DropArea({showData, updateData}) {
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       updateData(readReplayFile(await e.dataTransfer.files[0].text()))
       showData();
+      setPadValue(5);
     }
   };
 
@@ -31,6 +32,7 @@ export function DropArea({showData, updateData}) {
       className={"DropArea" + (dragActive ? " draggin" : "" )}
       onDragEnter={handleDrag}
       onDragLeave={handleDrag}
+      style={{padding: padValue + "px 100px"}}
     >
       <p>Drop a .roa file here!</p>
       {dragActive && <div

@@ -1,6 +1,10 @@
+html {
+  background-color: #282c34;
+  margin: 10px;
+}
+
 .App {
   text-align: center;
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,7 +22,6 @@
 
 
 .DropArea {
-  padding: 50px 100px;
   border: dashed 4px lightgrey;
   border-radius: 30px;
 }
@@ -85,6 +88,16 @@
   gap: 10px;
 }
 
+.playerTitle {
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: calc(7px + 2vmin);
+  color: lightgray;
+}
+
 .infoRow {
   display: flex;
   gap: 10px;
@@ -117,6 +130,7 @@
   display: flex;
   gap: 2px;
   filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+  margin-bottom: 5px;
 }
 
 .socialButt {
