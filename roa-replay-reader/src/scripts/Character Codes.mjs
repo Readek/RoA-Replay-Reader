@@ -47,7 +47,7 @@ const characterCodes = {
             15 : "Bradshaw",
             16 : "Collegiate",
             17 : "Golden",
-            19 : "Street Wave"
+            19 : "Streetwave"
         },
     },
     5 : {
@@ -262,7 +262,8 @@ const characterCodes = {
             3 : "Green",
             4 : "White",
             5 : "Dark Purple",
-            11 : "Champion"
+            11 : "Champion",
+            12 : "Streetwave"
         },
     }
 }
