@@ -31,13 +31,11 @@ export function DropArea({showData, updateData, padValue, setPadValue}) {
     <div
       className={"DropArea" + (dragActive ? " draggin" : "" )}
       onDragEnter={handleDrag}
-      onDragLeave={handleDrag}
       style={{padding: padValue + "px 100px"}}
     >
       <p>Drop a .roa file here!</p>
       {dragActive && <div
         id="drag-file-element"
-        onDragEnter={handleDrag}
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
         onDrop={handleDrop}

@@ -8,7 +8,7 @@ export function GameInfoData({title, value, img, tooltip}) {
     return (
         <div 
             className="gameInfoData"
-            tooltip $$ title={tooltip}
+            title={tooltip}
         >
             {img && <img className={nameOfClass} src={process.env.PUBLIC_URL + img}/>}
             {title && <div className="infoTitle">{title}</div>}
