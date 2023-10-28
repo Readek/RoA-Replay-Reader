@@ -263,7 +263,8 @@ const characterCodes = {
             4 : "White",
             5 : "Dark Purple",
             11 : "Champion",
-            12 : "Streetwave"
+            12 : "Golden",
+            15 : "Streetwave"
         },
     }
 }
