@@ -239,6 +239,7 @@ const characterCodes = {
             3 : "Green",
             4 : "Grey",
             5 : "Purple",
+            11 : "Champion",
             12 : "Genesis",
         },
     },
