@@ -96,7 +96,8 @@ const characterCodes = {
             15 : "Ragnir",
             16 : "Golden",
             17 : "Champion",
-            19 : "GoTE"
+            19 : "GoTE",
+            20 : "Early to Bed"
         },
     },
     8 : {
