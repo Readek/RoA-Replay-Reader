@@ -15,7 +15,8 @@ const characterCodes = {
             15 : "Shine",
             16 : "Golden",
             17 : "LoA",
-            19 : "Steampunk"
+            19 : "Steampunk",
+            20 : "Genesis"
         },
     },
     3 : {
